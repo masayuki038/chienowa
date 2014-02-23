@@ -4,4 +4,8 @@ class ItemsController < ApplicationController
 
   def help
   end
+
+  def contact
+  end
+
 end

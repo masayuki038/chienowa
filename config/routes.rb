@@ -1,6 +1,9 @@
 Chienowa::Application.routes.draw do
-  get "items/home"
-  get "items/help"
+  match '/signup', to: 'users#new', via: 'get'
+  match '/home', to: 'items#home', via: 'get'
+  match '/help', to: 'items#help', via: 'get'
+  match '/contact', to: 'items#contact', via: 'get'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
