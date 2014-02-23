@@ -45,3 +45,9 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'therubyracer'
+gem 'bootstrap-sass', '3.1.1'
+gem 'bootswatch-rails', '0.4.0'
+
+group :development, :test do
+  gem 'rspec-rails', '2.11.0'
+end
