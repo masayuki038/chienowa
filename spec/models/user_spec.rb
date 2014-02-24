@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
 
-  before { @user = User.new(name: "Example User", email: "user@example.com",
+  before { @user = User.new(name: "Example User", email: "user2@example.com",
                             password: "foobar", password_confirmation: "foobar") }
 
   subject { @user }
@@ -14,7 +14,7 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:authenticate) }
 
-  it { should be_valid }
+  it { should be_valid;@user.errors.full_messages }
 
   describe "when name is not present" do
     before { @user.name = "" }
@@ -79,11 +79,14 @@ describe User do
   end
 
   describe "return value of authenticate method" do
-    before { @user.save }
+    before do 
+      @user = FactoryGirl.create(:user)
+      @user.save!
+    end
     let(:found_user) { User.find_by(email: @user.email) }
 
     describe "with valid password" do
-      it { should eq found_user.authenticate(@user.password) }
+      it { puts "it @user.id:#{@user.id}"; should eq found_user.authenticate(@user.password) }
     end
 
     describe "with invalid password" do

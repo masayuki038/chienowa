@@ -51,7 +51,11 @@ gem 'bootswatch-rails', '0.4.0'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
-  gem 'capybara', '1.1.2'
+  gem 'capybara', '2.1.0'
+end
+
+group :test do
+  gem 'factory_girl_rails', '4.2.1'
 end
 
 gem 'bcrypt-ruby', '3.1.2'

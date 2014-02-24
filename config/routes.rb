@@ -1,4 +1,7 @@
 Chienowa::Application.routes.draw do
+
+  resources :users
+  root 'items#home'
   match '/signup', to: 'users#new', via: 'get'
   match '/home', to: 'items#home', via: 'get'
   match '/help', to: 'items#help', via: 'get'
