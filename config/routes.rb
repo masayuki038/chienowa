@@ -1,8 +1,13 @@
 Chienowa::Application.routes.draw do
 
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
   root 'items#home'
   match '/signup', to: 'users#new', via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via:'delete'
+
   match '/home', to: 'items#home', via: 'get'
   match '/help', to: 'items#help', via: 'get'
   match '/contact', to: 'items#contact', via: 'get'

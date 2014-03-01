@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "UserPages" do
 
   subject { page }
-  user = FactoryGirl.create(:user)
+  #user = FactoryGirl.create(:user)
 
   describe "signup page" do
     before { visit signup_path }
@@ -11,9 +11,9 @@ describe "UserPages" do
     it { should have_content('Sign up') }
   end
 
-  
+
   describe "profile page" do
-    #let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryGirl.create(:user) }
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
@@ -32,15 +32,20 @@ describe "UserPages" do
     end
 
     describe "with valid information" do
+      let(:user) { FactoryGirl.build(:user) }
       before do
-        fill_in "Name", with: "Example User"
-        fill_in "Email", with: "user@example.com"
-        fill_in "Password", with: "foobar"
-        fill_in "Confirmation", with: "foobar"
+        fill_in "Name", with: user.name
+        fill_in "Email", with: user.email
+        fill_in "Password", with: user.password
+        fill_in "Confirmation", with: user.password_confirmation
       end
 
-      it "should create a user" do
-        exect { click_button submit }.to change(User, :count).by(1)
+      describe "after saving the user" do
+        before { click_button submit }
+
+        it { should have_link('Sign out') }
+        it { should have_title(user.name) }
+        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
       end
     end
   end
