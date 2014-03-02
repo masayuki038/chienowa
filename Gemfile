@@ -33,7 +33,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -52,10 +52,17 @@ gem 'bootswatch-rails', '0.4.0'
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'capybara', '2.1.0'
+  gem 'guard-rspec', '2.5.0'
+  gem 'database_cleaner', '1.2.0'
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.0'
+  gem 'childprocess', '0.3.6'
 end
 
 group :test do
   gem 'factory_girl_rails', '4.2.1'
 end
 
-gem 'bcrypt-ruby', '3.1.2'
+gem 'faker', '1.1.2'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
