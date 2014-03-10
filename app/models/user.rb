@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :items
+
   before_save { self.email = email.downcase }
   before_create :create_remember_token
 
@@ -21,6 +23,5 @@ class User < ActiveRecord::Base
 private
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64
-    #puts "called create_remember_token: " + self.remember_token
   end
 end

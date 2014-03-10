@@ -14,6 +14,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:items) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -67,11 +68,9 @@ describe User do
 
   describe "when email address is already taken" do
     before do
-      puts "@user.email: #{@user.email}"
       user_with_same_email = @user.dup
       user_with_same_email.email = @user.email
       user_with_same_email.save
-      puts "user_with_same_email: #{user_with_same_email.email}"
     end
 
     it { should_not be_valid }
@@ -95,14 +94,14 @@ describe User do
   end
 
   describe "return value of authenticate method" do
-    before do 
+    before do
       @user = FactoryGirl.create(:user)
       @user.save!
     end
     let(:found_user) { User.find_by(email: @user.email) }
 
     describe "with valid password" do
-      it { puts "it @user.id:#{@user.id}"; should eq found_user.authenticate(@user.password) }
+      it { should eq found_user.authenticate(@user.password) }
     end
 
     describe "with invalid password" do
@@ -110,6 +109,29 @@ describe User do
 
       it { should_not eq user_for_invalid_password }
       specify { expect(user_for_invalid_password).to be_false }
+    end
+  end
+
+  describe "item associations" do
+    before { @user.save }
+    let!(:older_item) do
+      FactoryGirl.create(:item, user:@user, created_at: 1.day.ago)
+    end
+    let!(:newer_item) do
+      FactoryGirl.create(:item, user:@user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right items in the right order" do
+      expect(@user.items.to_a).to eq [newer_item, older_item]
+    end
+
+    it "should destroy associated microposts" do
+      items = @user.items.to_a
+      @user.destroy
+      expect(items).not_to be_empty
+      items.each do |item|
+        expect(Item.where(id: item.id)).not_to be_empty
+      end
     end
   end
 end
