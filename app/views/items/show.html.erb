@@ -6,6 +6,6 @@
 <% end %>
 <div class="row">
   <div class="span6 offset3">
-    <%= @item.content %>
+    <%= markdown(@item.content, 'python') %>
   </div>
 </div>
