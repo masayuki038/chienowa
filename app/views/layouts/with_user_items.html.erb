@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<%= render "shared/head" %>
+<body>
+  <div class="container">
+    <div class="row clearfix">
+      <div class="col-md-9 column">
+        <%= render "shared/nav" %>
+        <div>
+          <%= render "shared/messages" %>
+          <%= yield %>
+          <%= debug(params) if Rails.env.development? %>
+        </div>
+      </div>
+      <div class="col-md-3 column">
+        <div style="display: block; margin-bottom: 15px;">
+          <%= gravatar_for current_user %>
+        </div>
+        <div>
+          <address> <strong><%= current_user.name %></strong></address>
+        </div>
+        <div>
+        <ul>
+          <li>
+            Lorem ipsum dolor sit amet
+          </li>
+          <li>
+            Consectetur adipiscing elit
+          </li>
+          <li>
+            Integer molestie lorem at massa
+          </li>
+          <li>
+            Facilisis in pretium nisl aliquet
+          </li>
+          <li>
+            Nulla volutpat aliquam velit
+          </li>
+          <li>
+            Faucibus porta lacus fringilla vel
+          </li>
+          <li>
+            Aenean sit amet erat nunc
+          </li>
+          <li>
+            Eget porttitor lorem
+          </li>
+        </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

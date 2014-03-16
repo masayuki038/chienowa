@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "bootstrap/theme";
+@import "github";
 
 $grayMediumLight: #eaeaea;
 
@@ -92,6 +93,10 @@ input {
 .gravatar {
   float: left;
   margin-right: 10px;
+}
+
+.highlighttable {
+  width: 100%;
 }
 
 aside {

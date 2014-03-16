@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    render layout: "with_user_items"
   end
 
   def edit
