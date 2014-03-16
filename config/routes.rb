@@ -5,6 +5,7 @@ Chienowa::Application.routes.draw do
   resources :items
 
   root 'items#home'
+  match '/search', to: 'items#search', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via:'delete'

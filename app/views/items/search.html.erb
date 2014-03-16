@@ -1,0 +1,12 @@
+<% provide(:title, "search") %>
+<div>
+  <div class="span8">
+    <% if @items.any? %>
+      <h3>Results (<%= @items.count %>)</h3>
+      <ol class="items">
+        <%= render @items %>
+      </ol>
+      <%= will_paginate @items %>
+    <% end %>
+  </div>
+</div>

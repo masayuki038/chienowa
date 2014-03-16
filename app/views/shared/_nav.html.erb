@@ -30,11 +30,19 @@
               <li><%= link_to "Sign in", signin_path %></li>
             <% end %>
             </ul>
+            <%= form_tag('/search', method: :get, class: "navbar-form navbar-left") do %>
+              <div class="form-group">
+                <input type="text" name="query" class="form-control">
+              </div> 
+              <button type="submit" id="search" class="btn btn-default">Search</button>
+            <% end %>
+<!--
             <form class="navbar-form navbar-left" role="search">
               <div class="form-group">
                 <input type="text" class="form-control">
               </div> 
               <button type="submit" id="search" class="btn btn-default">Search</button>
             </form>
+-->
           </div>
         </nav>

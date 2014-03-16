@@ -16,6 +16,19 @@ describe "Items" do
     it { should have_content('Contact') }
   end
 
+  describe "Search Page" do
+    let!(:item) { FactoryGirl.create(:item, user: user) }
+    describe "With query" do
+      before { visit search_path + "?query=test" }
+      it { should have_content('Test') }
+    end
+
+    describe "With no query" do
+      before { visit search_path }
+      it { should have_content('Test') }
+    end
+  end
+
   describe "item creation" do
     before { visit new_item_path }
 

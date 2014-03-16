@@ -4,48 +4,33 @@
 <body>
   <div class="container">
     <div class="row clearfix">
+      <%= render "shared/nav" %>
       <div class="col-md-9 column">
-        <%= render "shared/nav" %>
         <div>
           <%= render "shared/messages" %>
           <%= yield %>
           <%= debug(params) if Rails.env.development? %>
         </div>
       </div>
-      <div class="col-md-3 column">
-        <div style="display: block; margin-bottom: 15px;">
-          <%= gravatar_for current_user %>
-        </div>
+      <div class="user_items col-md-3 column">
         <div>
-          <address> <strong><%= current_user.name %></strong></address>
+          <%= gravatar_for @item.user, size: 50 %>
         </div>
-        <div>
-        <ul>
-          <li>
-            Lorem ipsum dolor sit amet
-          </li>
-          <li>
-            Consectetur adipiscing elit
-          </li>
-          <li>
-            Integer molestie lorem at massa
-          </li>
-          <li>
-            Facilisis in pretium nisl aliquet
-          </li>
-          <li>
-            Nulla volutpat aliquam velit
-          </li>
-          <li>
-            Faucibus porta lacus fringilla vel
-          </li>
-          <li>
-            Aenean sit amet erat nunc
-          </li>
-          <li>
-            Eget porttitor lorem
-          </li>
-        </ul>
+        <div class="user">
+          <strong><%= link_to @item.user.name, user_path(@item.user) %></strong>
+        </div>
+        <div class="items">
+          Recently updates:
+          <ol>
+            <% @item.user.items.each do |item| %>
+            <li>
+              <div class="title"><%= link_to item.title, item_path(item) %></div>
+              <div class="timestamp">
+                Updated <%= time_ago_in_words(item.updated_at) %> ago.
+              </div>
+            </li>
+            <% end %>
+          </ol>
         </div>
       </div>
     </div>

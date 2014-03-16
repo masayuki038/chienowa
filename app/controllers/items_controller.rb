@@ -43,6 +43,10 @@ class ItemsController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def search
+    @items = Item.where("title LIKE ? or content LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%").paginate(page: params[:page])
+  end
+
   def home
   end
 

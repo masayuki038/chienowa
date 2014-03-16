@@ -1,7 +1,7 @@
 <% provide(:title, @item.title) %>
       <% if current_user?(@item.user) %>
-        <%= link_to 'edit', action: :edit, id: params[:id] %>
-        <%= link_to 'delete', item_path(@item), method: :delete, data: {confirm: 'Are you sure?'} %>
+        <span class="edit"><%= link_to 'edit', {action: :edit, id: params[:id]}, {class: "btn btn-default"} %></span>
+        <span class="delete"><%= link_to 'delete', item_path(@item), {method: :delete, data: {confirm: 'Are you sure?'}} %></span>
       <% end %>
 
         <div class="page-header">

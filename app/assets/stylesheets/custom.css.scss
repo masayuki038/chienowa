@@ -63,12 +63,20 @@ input {
 }
 
 /* user forms */
-.user input, textarea, select, .uneditable-input {
+@mixin content_form {
   border: 1px solid #bbb;
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
   @include box_sizing;
+}
+
+.user input, textarea, select, .uneditable-input {
+  @include content_form;
+}
+
+.item input, textarea, select, .uneditable-input {
+  @include content_form;
 }
 
 /* items */
@@ -80,15 +88,24 @@ input {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
+
+  .user {
+    margin-right: 5px;
+  }
+
+  .title {
+    margin-left: 2px;
+  }
+
+  .timestamp {
+    color: $gray-light;
+  }
 }
 
 .content {
   display: block;
 }
 
-.timestamp {
-  color: $gray-light;
-}
 
 .gravatar {
   float: left;
@@ -99,10 +116,30 @@ input {
   width: 100%;
 }
 
+.edit {
+  margin-left: 0px;
+  margin-right: 10px;
+}
+
+.delete {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 aside {
   textarea {
     height: 100px;
     margin-bottom: 5px;
+  }
+}
+
+.user_items {
+  margin-top: 96px;
+  .user {
+    margin-top: 15px;
+  }
+  .items {
+    margin-top: 40px;
   }
 }
 
