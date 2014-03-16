@@ -1,4 +1,4 @@
-chienowa
+Chienowa
 ========
 
-'chienowa' is a knowledge sharing tool written in Rails4.
+'Chienowa' is a gist clone written in Rails4.
