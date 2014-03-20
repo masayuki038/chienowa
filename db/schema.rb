@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304154145) do
+ActiveRecord::Schema.define(version: 20140320140145) do
+
+  create_table "item_histories", force: true do |t|
+    t.integer  "item_id"
+    t.integer  "revision"
+    t.string   "title"
+    t.string   "content"
+    t.string   "title_diff"
+    t.string   "content_diff"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "item_histories", ["item_id", "revision"], name: "index_item_histories_on_item_id_and_revision", unique: true
 
   create_table "items", force: true do |t|
     t.string   "content"

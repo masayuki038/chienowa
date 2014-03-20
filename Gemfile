@@ -70,3 +70,4 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem "redcarpet"
 gem "pygments.rb"
 gem "nokogiri"
+gem "diffy"
