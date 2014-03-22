@@ -4,9 +4,6 @@ ruby '2.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -51,6 +48,9 @@ gem 'bootstrap-generators', '~> 3.0'
 gem 'bootswatch-rails', '0.4.0'
 
 group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+
   gem 'rspec-rails', '2.11.0'
   gem 'capybara', '2.1.0'
   gem 'guard-rspec', '2.5.0'
