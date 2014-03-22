@@ -67,18 +67,29 @@ describe "AuthenticationPages" do
           before { post items_path }
           specify { response.should redirect_to(signin_path) }
         end
+
         describe "submitting to the destroy action" do
           before { delete item_path(FactoryGirl.create(:item)) }
           specify { response.should redirect_to(signin_path) }
         end
+
         describe "visiting the new action" do
           before { get new_item_path }
           specify { response.should redirect_to(signin_path) }
         end
+
         describe "visiting the home action" do
           before { get home_path }
           specify { response.should redirect_to(signin_path) }
         end
+
+        describe "displaying changes link"
+          let(:item) { FactoryGirl.create(:item, user: user) }
+          before { visit item_path(item) }
+
+          it { should have_link(:changes) }
+          it { should_not have_link(:edit) }
+          it { should_not have_link(:delete) }
       end
 
       describe "when attempting to visit a protected page" do
