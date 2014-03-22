@@ -48,6 +48,11 @@ class ItemsController < ApplicationController
   end
 
   def home
+    if signed_in?
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to signin_path
+    end
   end
 
   def help
