@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_filter :signed_in_user, only: [:create, :update, :destroy]
+  before_filter :signed_in_user, only: [:new, :create, :update, :destroy, :home]
 
   def show
     @item = Item.find(params[:id])
@@ -48,11 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def home
-    if signed_in?
-      redirect_to user_path(current_user.id)
-    else
-      redirect_to signin_path
-    end
+    redirect_to user_path(current_user.id)
   end
 
   def help

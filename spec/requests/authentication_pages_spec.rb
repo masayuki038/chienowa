@@ -71,6 +71,14 @@ describe "AuthenticationPages" do
           before { delete item_path(FactoryGirl.create(:item)) }
           specify { response.should redirect_to(signin_path) }
         end
+        describe "visiting the new action" do
+          before { get new_item_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+        describe "visiting the home action" do
+          before { get home_path }
+          specify { response.should redirect_to(signin_path) }
+        end
       end
 
       describe "when attempting to visit a protected page" do
