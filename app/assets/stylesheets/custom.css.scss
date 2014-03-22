@@ -134,6 +134,9 @@ input {
 
 .highlighttable {
   width: 100%;
+  .linenos {
+    width: 48px;
+  }
 }
 
 .changes {
