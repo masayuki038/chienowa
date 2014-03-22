@@ -84,9 +84,7 @@ describe "Items" do
 
         it "should update an item" do
           expect { click_button "Save changes" }.to change(Item, :count).by(0)
-          should have_title(user.name)
-          should have_selector('div.alert.alert-success')
-          should have_link('Sign out', href: signout_path)
+          should have_title(item.title)
         end
       end
     end

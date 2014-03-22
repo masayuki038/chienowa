@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.update_attributes(item_params)
       flash[:success] = "Item updated"
-      redirect_to user_path(current_user.id)
+      redirect_to item_path(@item)
     else
       render 'edit'
     end
