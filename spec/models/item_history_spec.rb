@@ -57,6 +57,8 @@ describe ItemHistory do
   end
 
   describe "should create a history when content updated" do
+    let!(:content_before) { item.content }
+
     before do
       item.content = "test2"
       item.save!
@@ -67,7 +69,7 @@ describe ItemHistory do
       recent_history = item.reload.histories[0]
       recent_history.revision.should == 2
       recent_history.title_diff.should == nil
-      recent_history.content_diff.include?("-Lorem ipsum").should be_true
+      recent_history.content_diff.include?("-" << content_before).should be_true
       recent_history.content_diff.include?("+test2").should be_true
     end
   end
@@ -88,6 +90,8 @@ describe ItemHistory do
   end
 
   describe "should create a history when title and content updated" do
+    let!(:content_before) { item.content }
+
     before do
       item.title = "title2"
       item.content = "test3"
@@ -99,7 +103,7 @@ describe ItemHistory do
       recent_history = item.reload.histories[0]
       recent_history.revision.should == 2
       recent_history.title_diff.should == "title2"
-      recent_history.content_diff.include?("-Lorem ipsum").should be_true
+      recent_history.content_diff.include?("-" << content_before).should be_true
       recent_history.content_diff.include?("+test3").should be_true
     end
   end

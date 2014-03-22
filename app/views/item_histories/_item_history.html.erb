@@ -1,0 +1,28 @@
+    <li>
+      <%= gravatar_for item_history.item.user %>
+      <span class="user">
+        <%= link_to item_history.item.user.name, user_path(item_history.item.user) %>
+      </span>/
+      <span class="title">
+        <%= link_to item_history.item.title, item_path(item_history.item) %>
+      </span>
+      <span class="timestamp">
+        Updated <%= time_ago_in_words(item_history.created_at) %> ago.
+      </span>
+    <% if item_history.title_diff %>
+      <div class="diff_header">
+        Title:
+      </div>
+      <div class="diff_body">
+        <pre><%= item_history.title_diff %></pre>
+      </div>
+    <% end %>
+    <% if item_history.content_diff %>
+      <div class="diff_header">
+        Content:
+      </div>
+      <div class="diff_body">
+        <%= raw to_diff_html(item_history.content_diff) %>
+      </div>
+    <% end %>
+    </li>  

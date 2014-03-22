@@ -21,7 +21,7 @@ class Item < ActiveRecord::Base
       new_revision = @before_item.histories.size + 1
       title_diff = self.title if self.title != @before_item.title
       if self.content != @before_item.content
-        content_diff = Diffy::Diff.new(@before_item.content, self.content).to_s
+        content_diff = Diffy::Diff.new(@before_item.content, self.content, include_diff_info: true).to_s
       end
     end
 

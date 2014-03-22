@@ -14,6 +14,15 @@ body {
   box-sizing: border-box;
 }
 
+@mixin list_li {
+  padding: 10px 0;
+  border-top: 1px solid #e8e8e8;
+}
+
+@mixin list_timestamp {
+  color: $gray-light;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -85,8 +94,7 @@ input {
   margin: 10px 0 0 0;
 
   li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    @include list_li;
   }
 
   .user {
@@ -98,7 +106,19 @@ input {
   }
 
   .timestamp {
-    color: $gray-light;
+    @include list_timestamp;
+  }
+}
+
+.item_histories {
+  margin-top: 10px;
+
+  li {
+    @include list_li;
+  }
+
+  .timestamp {
+    @include list_timestamp;
   }
 }
 
@@ -116,8 +136,13 @@ input {
   width: 100%;
 }
 
-.edit {
+.changes {
   margin-left: 0px;
+  margin-right: 10px;
+}
+
+.edit {
+  margin-left: 10px;
   margin-right: 10px;
 }
 
@@ -142,6 +167,87 @@ aside {
     margin-top: 40px;
   }
 }
+
+.diff_header {
+  margin-top: 20px;
+}
+
+.diff_body {
+  margin-top: 5px;
+  margin-left: 60px;
+}
+
+.diff {
+  overflow: auto;
+  border: 1px solid #e8e8e8;
+  padding: 2px;
+
+  ul {
+    background: #fff;
+    overflow: auto;
+    font-size: 13px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: table;
+    width: 100%;
+  }
+
+  del, ins {
+    display: block;
+    text-decoration: none;
+  }
+
+  li {
+    padding: 0;
+    display: table-row;
+    margin: 0;
+    height: 1em;
+
+    ins {
+      background: #cec;
+      color: #070;
+    }
+
+    del {
+      background: #edd;
+      color: #a00;
+    }
+
+    &:hover {
+      background: #ffc;
+    }
+
+    diff-comment {
+      display: none;
+    }
+
+    diff-block-info {
+      background: none repeat scroll 0 0 gray;
+    }
+  }
+
+  del, ins, span {
+    white-space: pre-wrap; font-family: courier;
+  }
+
+  del {
+    strong {
+      font-weight: normal;
+      background: #fcc;
+    }
+  }
+
+  ins {
+    strong {
+      font-weight: normal;
+      background: #9f9;
+    }
+  }
+}
+  
+
+
 
 /* debug */
 

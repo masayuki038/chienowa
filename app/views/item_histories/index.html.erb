@@ -1,2 +1,10 @@
-<% provide(:title, "Histories") %>
-<h1>Histories</h1>
+<% provide(:title, "Changes") %>
+<h1>Changes</h1>
+
+<%= will_paginate %>
+
+<ul class="item_histories">
+  <%= render @item_histories %>
+</ul>
+
+<%= will_paginate %>

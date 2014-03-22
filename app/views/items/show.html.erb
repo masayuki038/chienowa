@@ -1,5 +1,6 @@
 <% provide(:title, @item.title) %>
       <% if current_user?(@item.user) %>
+        <span class="changes"><%= link_to 'changes', {controller: :item_histories, action: :index, id: params[:id]}, {class: "btn btn-default"} %></span>
         <span class="edit"><%= link_to 'edit', {action: :edit, id: params[:id]}, {class: "btn btn-default"} %></span>
         <span class="delete"><%= link_to 'delete', item_path(@item), {method: :delete, data: {confirm: 'Are you sure?'}} %></span>
       <% end %>
