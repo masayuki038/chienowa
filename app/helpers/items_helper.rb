@@ -26,6 +26,6 @@ module ItemsHelper
         )
       )
     end
-    doc.to_s
+    doc.xpath('//body').inner_html
   end
 end

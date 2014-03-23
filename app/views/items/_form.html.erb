@@ -6,12 +6,52 @@
       <%= f.label :title %>
       <%= f.text_field :title %>
 
-      <%= f.label :content %>
-      <%= f.text_area :content, size: "20x20" %>
-      
+    <ul id="edit_tab" class="nav nav-tabs">
+      <li class="active"><a href="#markdown" id="markdown_tab" data-toggle="tab">Markdown</a></li>
+      <li><a href="#preview" id="preview_tab" data-toggle="tab">Preview</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="markdown">
+        <%= f.text_area :content, id: "content", size: "20x20" %>
+      </div>
+      <div class="tab-pane" id="preview">
+        <div class="tab-pane-preview" id="preview-content">
+        </div>
+      </div>
+    </div>
+
       <div class="col-xs-2 col-xs-offset-5">
         <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
       </div>
     <% end %>
   </div>
+  <script type="text/javascript">
+    function preview(f) {
+      $.ajax({
+        url: "/item/preview",
+        type: "post",
+        data: $("#content").val(),
+        success: function(data){
+          f(data);
+        },
+        error: function() {
+          alert("Failed to preview");
+        }
+      }); 
+      return false;
+    }
+
+    $('#edit_tab a').click(function (e) {
+      e.preventDefault()
+      if(this.id == "preview_tab") {
+        var clicked = this;
+        preview(function(data){
+          $("#preview-content").html(data);
+          $(clicked).tab('show')
+        });
+      } else {
+        $(this).tab('show');
+      }
+    });
+  </script>
 </div>

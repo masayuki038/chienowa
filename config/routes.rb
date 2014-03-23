@@ -16,6 +16,7 @@ Chienowa::Application.routes.draw do
   match '/item_histories/:id', to: 'item_histories#index', via: 'get', as: :item_histories
 
   match '/item_comments', to: 'item_comments#create', via: 'post'
+  match '/item/preview', to: 'items#preview', via: 'post'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

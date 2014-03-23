@@ -52,6 +52,10 @@ class ItemsController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def preview
+    render text: markdown(request.body.read).to_s, layout: false
+  end
+
   def help
   end
 
