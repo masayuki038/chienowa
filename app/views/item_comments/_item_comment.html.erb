@@ -1,0 +1,12 @@
+    <li>
+      <%= gravatar_for item_comment.user, size: 25 %>
+      <span class="user">
+        <%= link_to item_comment.user.name, user_path(item_comment.user) %>
+      </span>
+      <span class="timestamp">
+        Updated <%= time_ago_in_words(item_comment.created_at) %> ago.
+      </span>
+      <div class="content">
+        <%= markdown(item_comment.content) %>
+      </div>
+    </li>

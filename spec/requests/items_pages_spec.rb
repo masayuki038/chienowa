@@ -48,7 +48,7 @@ describe "Items" do
       end
       it "should create an item" do
         expect { click_button "Save changes" }.to change(Item, :count).by(1)
-        should have_title(user.name)
+        should have_title("Test")
         should have_selector('div.alert.alert-success')
         should have_link('Sign out', href: signout_path)
       end
@@ -89,6 +89,40 @@ describe "Items" do
         expect do
           click_link("delete")
         end.to change(Item, :count).by(-1)
+      end
+    end
+
+    describe "Comment" do
+      it { should have_content("Comments") }
+      describe "add" do
+        let(:commentator) { FactoryGirl.create(:user, name: "commentator") }
+        before do
+          sign_in commentator
+          visit item_path(item)
+          fill_in 'item_comment_content', with:'comment test'
+        end
+
+        it "should create a comment" do
+          expect { click_button "Add comment" }.to change(ItemComment, :count).by(1)
+          should have_content(commentator.name)
+          should have_content('comment test')
+        end
+
+        describe "add again" do
+          let(:commentator2) { FactoryGirl.create(:user, name: "commentator2") }
+          before do
+            sign_in commentator2
+            visit item_path(item)
+            fill_in 'item_comment_content', with:'yet another comment'
+          end
+
+          it "should create a comment again" do
+            expect { click_button 'Add comment' }.to change(ItemComment, :count).by(1)
+            should have_content(commentator2.name)
+            should have_content('yet another comment')
+          end
+        end
+
       end
     end
   end

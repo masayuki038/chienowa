@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @item_comment = ItemComment.new(item: @item)
     render layout: "with_user_items"
   end
 
@@ -20,7 +21,7 @@ class ItemsController < ApplicationController
     if @item.save
       flash[:success] = "Item saved"
       #redirect_to controller: 'users', action: 'show', params: { id: current_user.id }
-      redirect_to user_path(current_user.id)
+      redirect_to item_path(@item)
     else
       render 'new'
     end
@@ -61,5 +62,4 @@ private
   def item_params
     params.require(:item).permit(:title, :content)
   end
-
 end
