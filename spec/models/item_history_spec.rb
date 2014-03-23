@@ -13,7 +13,6 @@ describe ItemHistory do
                                     content_diff: "barfoo"
                                     )
   end
-
   subject { @item_history }
 
   it { should respond_to(:item_id) }
@@ -52,7 +51,7 @@ describe ItemHistory do
     it { should_not be_valid }
   end
 
-  describe "should create a histry when item created" do
+  describe "should create a history when item created" do
     specify { expect(item.reload.histories.size).to eq 1 }
   end
 

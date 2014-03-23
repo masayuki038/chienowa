@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :user
   has_many :histories, class_name: ItemHistory
+  has_many :comments, class_name: ItemComment
 
   before_save {
     @before_item = Item.find_by_id(self.id)
