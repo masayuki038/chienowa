@@ -309,6 +309,10 @@ aside {
     .your_comment {
       color: $gray-light;
     }
+
+    textarea {
+      font-family: monospace;
+    }
   }
 }
 
@@ -330,6 +334,7 @@ div.tab-pane {
 
   textarea {
     border: 0px;
+    font-family: monospace;
   }  
 }
   
