@@ -16,6 +16,8 @@
       </div>
       <div class="tab-pane" id="preview">
         <div class="tab-pane-preview" id="preview-content">
+          <div class="dummy">
+          </div>
         </div>
       </div>
     </div>
@@ -26,31 +28,20 @@
     <% end %>
   </div>
   <script type="text/javascript">
-    function preview(f) {
-      $.ajax({
-        url: "/item/preview",
-        type: "post",
-        data: $("#content").val(),
-        success: function(data){
-          f(data);
-        },
-        error: function() {
-          alert("Failed to preview");
-        }
-      }); 
-      return false;
-    }
-
-    $('#edit_tab a').click(function (e) {
-      e.preventDefault()
-      if(this.id == "preview_tab") {
-        var clicked = this;
-        preview(function(data){
-          $("#preview-content").html(data);
-          $(clicked).tab('show')
+    $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+      var target = $(e.target).attr("href")
+      if(target == '#preview') { 
+        $.ajax({
+          type: "POST",
+          url: "/item/preview",
+          data: $("#content").val(),
+          error: function(data){
+            alert("There was a problem");
+          },
+          success: function(data){
+            $("#preview-content").html(data);
+          }
         });
-      } else {
-        $(this).tab('show');
       }
     });
   </script>

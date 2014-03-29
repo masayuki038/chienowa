@@ -295,6 +295,9 @@ div.tab-pane {
 
   .tab-pane-preview {
     padding-left: 10px;
+    .dummy {
+      height: 9999px;
+    }
   }
 
   textarea {
