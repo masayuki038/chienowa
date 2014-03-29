@@ -21,11 +21,47 @@
           <div class="comment_form">
             <%= form_for(@item_comment, url: {controller: :item_comments, action: :create}) do |f| %>
               <%= f.label :your_comment, class: "your_comment" %>
-              <%= f.text_area :content, size: "20x2" %>
+            <ul id="edit_tab" class="nav nav-tabs">
+              <li class="active"><a href="#markdown" id="markdown_tab" data-toggle="tab">Markdown</a></li>
+              <li><a href="#preview" id="preview_tab" data-toggle="tab">Preview</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="markdown">
+
+              <%= f.text_area :content, id: "content", size: "20x2" %>
               <%= f.hidden_field :item_id %>
-              <div class="col-xs-2 col-xs-offset-5">
-                <%= f.submit "Add comment", class: "btn btn-large btn-primary" %>
+
               </div>
-            <% end %>
+              <div class="tab-pane" id="preview">
+                <div class="tab-pane-preview markdown" id="preview-content">
+                  <div class="dummy">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-2 col-xs-offset-5">
+              <%= f.submit "Add comment", class: "btn btn-large btn-primary" %>
+            </div>
+          <% end %>
           </div>
         </div>
+
+  <script type="text/javascript">
+    $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+      var target = $(e.target).attr("href")
+      if(target == '#preview') { 
+        $.ajax({
+          type: "POST",
+          url: "/item/preview",
+          data: $("#content").val(),
+          error: function(data){
+            alert("There was a problem");
+          },
+          success: function(data){
+            $("#preview-content").html(data);
+          }
+        });
+      }
+    });
+  </script>
