@@ -6,7 +6,7 @@
       <span class="timestamp">
         Updated <%= time_ago_in_words(item_comment.created_at) %> ago.
       </span>
-      <div class="content">
+      <div class="content markdown">
         <%= markdown(item_comment.content) %>
       </div>
     </li>
