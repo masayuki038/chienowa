@@ -12,7 +12,7 @@ describe "Items" do
   end
 
   describe "Search Page" do
-    let!(:item) { FactoryGirl.create(:item, user: user) }
+   let!(:item) { FactoryGirl.create(:item, user: user) }
     describe "With query" do
       before { visit search_path + "?query=test" }
       it { should have_content('Test') }
@@ -44,7 +44,7 @@ describe "Items" do
     describe "with valid information" do
       before do
         fill_in 'Title', with: "Test"
-        fill_in 'Content', with: "Lorem ipsum"
+        fill_in 'item[content]', with: "Lorem ipsum"
       end
       it "should create an item" do
         expect { click_button "Save changes" }.to change(Item, :count).by(1)
@@ -74,7 +74,7 @@ describe "Items" do
       describe "update item" do
         before do
           fill_in 'Title', with: 'Test2'
-          fill_in 'Content', with: 'Modified'
+          fill_in 'item[content]', with: 'Modified'
         end
 
         it "should update an item" do
@@ -94,12 +94,17 @@ describe "Items" do
 
     describe "Comment" do
       it { should have_content("Comments") }
+      describe "Form" do
+        before { sign_out user }
+        it { should_not have_content("Preview") }
+      end
+
       describe "add" do
         let(:commentator) { FactoryGirl.create(:user, name: "commentator") }
         before do
           sign_in commentator
           visit item_path(item)
-          fill_in 'item_comment_content', with:'comment test'
+          fill_in 'item_comment[content]', with:'comment test'
         end
 
         it "should create a comment" do
@@ -113,7 +118,7 @@ describe "Items" do
           before do
             sign_in commentator2
             visit item_path(item)
-            fill_in 'item_comment_content', with:'yet another comment'
+            fill_in 'item_comment[content]', with:'yet another comment'
           end
 
           it "should create a comment again" do

@@ -20,3 +20,7 @@ def sign_in(user, options={})
     click_button "Sign in"
   end
 end
+
+def sign_out(user)
+  click_link "Sign out"
+end
