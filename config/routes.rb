@@ -18,6 +18,10 @@ Chienowa::Application.routes.draw do
   match '/item_comments', to: 'item_comments#create', via: 'post'
   match '/item/preview', to: 'items#preview', via: 'post'
 
+  scope ':user' do
+    match '/items/:id', to: 'items#show', via: 'get', as: 'user_item'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

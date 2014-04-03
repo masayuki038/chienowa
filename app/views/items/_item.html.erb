@@ -1,6 +1,6 @@
         <li>
           <span class="user"><%=link_to item.user.name, user_path(item.user) %></span>/
-          <span class="title"><%= link_to item.title, item_path(item) %></span>
+          <span class="title"><%= link_to item.title, user_item_path(item.user.name, item.id) %></span>
           <span class="timestamp">
             Updated <%= time_ago_in_words(item.updated_at) %> ago.
           </span>
