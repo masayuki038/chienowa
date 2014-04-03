@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323021602) do
+ActiveRecord::Schema.define(version: 20140403135312) do
 
   create_table "item_comments", force: true do |t|
     t.integer  "item_id"
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 20140323021602) do
   end
 
   add_index "items", ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at"
+
+  create_table "stars", force: true do |t|
+    t.integer  "user_id"
+    t.string   "site_id"
+    t.string   "item_id"
+    t.text     "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stars", ["site_id", "item_id", "user_id"], name: "index_stars_on_site_id_and_item_id_and_user_id", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"

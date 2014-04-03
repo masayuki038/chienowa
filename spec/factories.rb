@@ -28,4 +28,10 @@ FactoryGirl.define do
     content "Lorem ipsum"
     user
   end
+
+  factory :star do
+    site_id "sample_test_id"
+    item_id "sample_item_id"
+    url "http://example.com/items/sample-item"
+  end
 end

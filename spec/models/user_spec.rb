@@ -134,4 +134,18 @@ describe User do
       end
     end
   end
+
+  describe "star associations" do
+    before { @user.save }
+    let!(:older_star) do
+      FactoryGirl.create(:star, item_id: "a", user:@user, created_at: 1.day.ago)
+    end
+    let!(:newer_star) do
+      FactoryGirl.create(:star, item_id: "b", user:@user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right stars in the right order" do
+      expect(@user.stars.to_a).to eq [newer_star, older_star]
+    end
+  end
 end
