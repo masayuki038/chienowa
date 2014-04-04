@@ -22,7 +22,11 @@ Chienowa::Application.routes.draw do
     match '/items/:id', to: 'items#show', via: 'get', as: 'user_item'
   end
 
-  # The priority is based upon order of creation: first created -> highest priority.
+  match '/stars', to: 'stars#create', via: 'post'
+  match '/stars', to: 'stars#destroy', via: 'delete'
+  match '/stars/:site_id/:item_id', to: 'stars#list', via: 'get'
+
+ # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

@@ -7,11 +7,14 @@
 
         <div class="page-header">
           <h1><%= @item.title %></h1>
+          <div id="stars"></div>
         </div>
 
         <div class="markdown span6 offset3">
           <%= markdown(@item.content) %>
         </div>
+        
+        <%= hidden_field :item, :id %>
 
         <div class="comment span6 offset3">
           <h4 class="comment_header">Comments</h4>
@@ -49,3 +52,7 @@
         <% end %>
         </div>
 <%= javascript_include_tag "preview" %>
+<%= javascript_include_tag "star" %>
+<script type="text/javascript">
+set_stars();
+</script>

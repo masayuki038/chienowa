@@ -55,6 +55,11 @@ input {
   @extend .error;
 }
 
+.page-header {
+  #stars {
+    height: 25px;
+  }
+}
 
 /* users index */
 
@@ -337,6 +342,11 @@ div.tab-pane {
     border: 0px;
     font-family: monospace;
   }  
+}
+
+/* star */
+#add_star {
+  height: 30px;
 }
   
 /* footer */
