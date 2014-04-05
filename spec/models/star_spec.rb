@@ -11,6 +11,7 @@ describe Star do
   it { should respond_to(:item_id) }
   it { should respond_to(:url) }
   it { should respond_to(:user) }
+  it { should respond_to(:comment) }
 
   it { should be_valid }
 
