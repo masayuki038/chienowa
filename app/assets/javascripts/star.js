@@ -1,5 +1,9 @@
 $('a#add_star').on('click', function(e) {
   var item_id = $("#item_id").val();
+  var comment = window.getSelection().toString();
+  if(comment) {
+    comment = '"' + comment + '"';
+  }
   $.ajax({
     type: "POST",
     url: "/stars",
@@ -7,7 +11,7 @@ $('a#add_star').on('click', function(e) {
       "star[site_id]": "chienowa", 
       "star[item_id]": item_id, 
       "star[url]": location.href,
-      "star[comment]": window.getSelection().toString()
+      "star[comment]": comment
     },
     success: function(data) {
       set_stars();
@@ -23,6 +27,23 @@ $('a#remove_star').on('click', function(e) {
     data: { site_id: "chienowa", item_id: item_id},
     success: function(data) {
       set_stars();
+    }
+  });
+});
+
+$('#save_star_comment').on('click', function(e) {
+  var item_id = $("#item_id").val();
+  $.ajax({
+    type: "PUT",
+    url: "/stars",
+    data: { 
+      site_id: "chienowa", 
+      item_id: item_id, 
+      comment: $('#star_comment_modal textarea').val()
+    },
+    success: function(data) {
+      set_stars();
+      $('#star_comment_modal').modal('hide');
     }
   });
 });
@@ -45,7 +66,13 @@ function set_stars() {
       $('#stars a').on('click', function(e) {
         return false;
       });
-      // $('#stars a').attr('data-toggle', 'hover');
+      $('#stars a.star_mine').on('click', function(e) {
+        var img = $("#stars a.star_mine img");
+        $('#star_comment_modal .modal-title').html(img.attr('alt'));
+        $('#star_comment_modal textarea').val(img.attr('longdesc'));
+        $('#star_comment_modal').modal();
+        return false;
+      });
       $('#stars img').popover({
         html: true,
         placement: 'bottom',

@@ -9,7 +9,7 @@
           <h1><%= @item.title %></h1>
           <div class="stars_container">
           <span id="stars"></span>
-          <% if signed_in? %>
+         <% if signed_in? %>
             <a href="#" id="add_star" href="#"><%= image_tag "star.jpg", :size => '24x24'%></a>
             <a href="#" id="remove_star" href="#"><%= image_tag "star.jpg", :size => '24x24'%></a>
           <% end %>
@@ -57,6 +57,8 @@
           </div>
         <% end %>
         </div>
+<%= render "shared/star_comment" %>
+
 <%= javascript_include_tag "preview" %>
 <%= javascript_include_tag "star" %>
 <script type="text/javascript">

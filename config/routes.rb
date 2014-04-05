@@ -23,6 +23,7 @@ Chienowa::Application.routes.draw do
   end
 
   match '/stars', to: 'stars#create', via: 'post'
+  match '/stars', to: 'stars#update', via: 'put'
   match '/stars', to: 'stars#destroy', via: 'delete'
   match '/stars/:site_id/:item_id', to: 'stars#list', via: 'get'
 

@@ -9,6 +9,17 @@ class StarsController < ApplicationController
     end
   end
 
+  def update
+    star = Star.find(:first, conditions:
+      { site_id: params[:site_id], item_id: params[:item_id], user_id: current_user.id })
+    star.comment = params[:comment]
+    if star.save
+      render :nothing => true, status: 200
+    else
+      render :nothing => true, status: 500
+    end
+  end
+
   def destroy
     star = Star.find(:first, conditions:
       { site_id: params[:site_id], item_id: params[:item_id], user_id: current_user.id })
