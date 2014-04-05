@@ -1,11 +1,1 @@
-<div>
   <%= render @stars %>
-  <% if signed_in? %>
-    <% unless starred? @stars %>
-      <a href="#" id="add_star" href="#"><%= image_tag "star.jpg", :size => '24x24'%></a>
-    <% else %>  
-      <a href="#" id="remove_star" href="#"><%= image_tag "star.jpg", :size => '24x24'%></a>
-    <% end %>
-  <% end %>
-</div>
-<%= javascript_include_tag "star" %>

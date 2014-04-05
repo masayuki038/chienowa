@@ -56,7 +56,7 @@ input {
 }
 
 .page-header {
-  #stars {
+  .stars_container {
     height: 25px;
   }
 }
@@ -346,7 +346,11 @@ div.tab-pane {
 
 /* star */
 #add_star {
-  height: 30px;
+  display: none;
+}
+
+#remove_star {
+  display: none;
 }
   
 /* footer */

@@ -29,6 +29,14 @@ function set_stars() {
     url: "/stars/chienowa/" + item_id,
     success: function(data) {
       $("#stars").html(data);
+      var mine = $(".star_mine")[0];
+      if(mine) {
+        $("#remove_star").show();
+        $("#add_star").hide();
+      }else{
+        $("#add_star").show();
+        $("#remove_star").hide();
+      }        
     }
   });
 }

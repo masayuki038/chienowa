@@ -7,7 +7,13 @@
 
         <div class="page-header">
           <h1><%= @item.title %></h1>
-          <div id="stars"></div>
+          <div class="stars_container">
+          <span id="stars"></span>
+          <% if signed_in? %>
+            <a href="#" id="add_star" href="#"><%= image_tag "star.jpg", :size => '24x24'%></a>
+            <a href="#" id="remove_star" href="#"><%= image_tag "star.jpg", :size => '24x24'%></a>
+          <% end %>
+          </div>
         </div>
 
         <div class="markdown span6 offset3">
