@@ -21,6 +21,7 @@
         </div>
         
         <%= hidden_field :item, :id %>
+        <%= hidden_field_tag 'user', @item.user.name %>
 
         <div class="comment span6 offset3">
           <h4 class="comment_header">Comments</h4>

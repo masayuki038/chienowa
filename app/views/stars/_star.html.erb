@@ -1,9 +1,9 @@
-
-  <% star_mine = current_user?(star.user) %>
-  <% if star_mine %>
-  <a href="#" class="star_mine">
-  <% end %>
-  <%= gravatar_for star.user, {size: 24, longdesc: star.comment} %>
-  <% if star_mine %>
-  </a>
-  <% end %>
+        <li>
+          <% if star.author %>
+          <%= gravatar_for @users[star.author], size: 52 %>
+          <% end %>
+          <span class="title"><%= link_to star.title, star.url %></span>
+          <span class="timestamp">
+            Updated <%= time_ago_in_words(star.updated_at) %> ago.
+          </span>
+        </li>

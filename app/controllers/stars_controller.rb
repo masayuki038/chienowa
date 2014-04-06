@@ -27,14 +27,24 @@ class StarsController < ApplicationController
     render :nothing => true, status: 200
   end
 
-  def list
+  def users
     @stars = Star.find(:all,
       conditions: { site_id: params[:site_id], item_id: params[:item_id] })
     render :layout => false
   end
 
+  def items
+    @stars = Star.where("user_id = ?", [current_user.id]).paginate(page: params[:page], per_page: 20)
+    @users = {}
+    @stars.each do |star|
+      if star.author
+        @users[star.author] = User.find_by_name(star.author)
+      end
+    end
+  end
+
 private
   def star_params
-    params.require(:star).permit(:site_id, :item_id, :url, :comment)
+    params.require(:star).permit(:site_id, :item_id, :url, :comment, :title, :author)
   end
 end

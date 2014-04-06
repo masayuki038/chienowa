@@ -1,0 +1,11 @@
+<% @stars.each do |star| %>
+  
+  <% star_mine = current_user?(star.user) %>
+  <% if star_mine %>
+  <a href="#" class="star_mine">
+  <% end %>
+  <%= gravatar_for star.user, {size: 24, longdesc: star.comment} %>
+  <% if star_mine %>
+  </a>
+  <% end %>
+<% end %>

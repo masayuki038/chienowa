@@ -1,5 +1,7 @@
 $('a#add_star').on('click', function(e) {
   var item_id = $("#item_id").val();
+  var author = $("#user").val();
+  var title = $(".page-header h1").html();
   var comment = window.getSelection().toString();
   if(comment) {
     comment = '"' + comment + '"';
@@ -10,6 +12,8 @@ $('a#add_star').on('click', function(e) {
     data: { 
       "star[site_id]": "chienowa", 
       "star[item_id]": item_id, 
+      "star[title]": title,
+      "star[author]": author,
       "star[url]": location.href,
       "star[comment]": comment
     },

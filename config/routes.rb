@@ -25,7 +25,8 @@ Chienowa::Application.routes.draw do
   match '/stars', to: 'stars#create', via: 'post'
   match '/stars', to: 'stars#update', via: 'put'
   match '/stars', to: 'stars#destroy', via: 'delete'
-  match '/stars/:site_id/:item_id', to: 'stars#list', via: 'get'
+  match '/stars/:site_id/:item_id', to: 'stars#users', via: 'get', as: 'star_users'
+  match '/stars', to: 'stars#items', via: 'get', as: 'star_items'
 
  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
