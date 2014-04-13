@@ -29,6 +29,10 @@ FactoryGirl.define do
     user
   end
 
+  factory :item_comment do
+    content "Comment test"
+  end
+
   factory :star do
     site_id "sample_test_id"
     item_id "sample_item_id"

@@ -7,4 +7,10 @@ class Star < ActiveRecord::Base
   validates :user_id, presence: true, uniqueness: { scope: [:site_id, :item_id] }
 
   default_scope -> { order('updated_at DESC') }
+
+  after_save :star_saved
+
+  def star_saved
+    Mailer.star_email(self).deliver
+  end
 end

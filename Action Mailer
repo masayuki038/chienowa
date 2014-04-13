@@ -1,0 +1,128 @@
+# Logfile created on 2014-04-13 13:11:47 +0000 by logger.rb/44203
+I, [2014-04-13T13:12:03.393891 #15064]  INFO -- : 
+Sent mail to masayuki038@gmail.com (30.5ms)
+D, [2014-04-13T13:12:03.394132 #15064] DEBUG -- : Date: Sun, 13 Apr 2014 13:12:03 +0000
+From: masayuki038@wrap-trap.net
+To: masayuki038@gmail.com
+Message-ID: <534a8d235e44c_3ad815cb3087736@2e9b9f395f9d.mail>
+Subject: test
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+commentetor commented about Test.   
+=====
+
+Comment test
+
+Please check the item.
+http://localhost:3000/items/1
+I, [2014-04-13T13:13:09.044344 #15075]  INFO -- : 
+Sent mail to masayuki038@gmail.com (31.6ms)
+D, [2014-04-13T13:13:09.044547 #15075] DEBUG -- : Date: Sun, 13 Apr 2014 13:13:09 +0000
+From: masayuki038@wrap-trap.net
+To: masayuki038@gmail.com
+Message-ID: <534a8d658cc5_3ae315cb3089976@2e9b9f395f9d.mail>
+Subject: test
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+commentetor commented about Test.   
+=====
+
+Comment test
+
+Please check the item.
+http://localhost:3000/items/1
+I, [2014-04-13T13:14:08.962294 #15086]  INFO -- : 
+Sent mail to masayuki038@gmail.com (33.6ms)
+D, [2014-04-13T13:14:08.962615 #15086] DEBUG -- : Date: Sun, 13 Apr 2014 13:14:08 +0000
+From: masayuki038@wrap-trap.net
+To: masayuki038@gmail.com
+Message-ID: <534a8da0e8c0c_3aee15cb3083436@2e9b9f395f9d.mail>
+Subject: test
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+commentetor commented about Test.   
+=====
+
+Comment test
+
+Please check the item.
+http://localhost:3000/items/1
+I, [2014-04-13T13:14:40.560428 #15108]  INFO -- : 
+Sent mail to masayuki038@gmail.com (30.9ms)
+D, [2014-04-13T13:14:40.560612 #15108] DEBUG -- : Date: Sun, 13 Apr 2014 13:14:40 +0000
+From: masayuki038@wrap-trap.net
+To: masayuki038@gmail.com
+Message-ID: <534a8dc086e9b_3b0415cb3089386@2e9b9f395f9d.mail>
+Subject: test
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+commentetor commented about Test.   
+=====
+
+Comment test
+
+Please check the item.
+http://localhost:3000/items/1
+I, [2014-04-13T13:15:15.930527 #15130]  INFO -- : 
+Sent mail to masayuki038@gmail.com (31.9ms)
+D, [2014-04-13T13:15:15.930728 #15130] DEBUG -- : Date: Sun, 13 Apr 2014 13:15:15 +0000
+From: masayuki038@wrap-trap.net
+To: masayuki038@gmail.com
+Message-ID: <534a8de3e13d3_3b1a15cb3085406@2e9b9f395f9d.mail>
+Subject: test
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+commentetor commented about Test.   
+=====
+
+Comment test
+
+Please check the item.
+http://localhost:3000/items/1
+I, [2014-04-13T13:29:32.621769 #15191]  INFO -- : 
+Sent mail to masayuki038@gmail.com (57.5ms)
+D, [2014-04-13T13:29:32.622019 #15191] DEBUG -- : Date: Sun, 13 Apr 2014 13:29:32 +0000
+From: masayuki038@wrap-trap.net
+To: masayuki038@gmail.com
+Message-ID: <534a913c8b437_3b57639318279a@2e9b9f395f9d.mail>
+Subject: test
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Test
+I, [2014-04-13T13:32:32.734111 #15191]  INFO -- : 
+Sent mail to masayuki038@gmail.com (67.6ms)
+D, [2014-04-13T13:32:32.734295 #15191] DEBUG -- : Date: Sun, 13 Apr 2014 13:32:32 +0000
+From: masayuki038@wrap-trap.net
+To: masayuki038@gmail.com
+Message-ID: <534a91f0a31e8_3b5763931828fa@2e9b9f395f9d.mail>
+Subject: test
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+commentator commented about Test.   
+=====
+
+Comment test
+
+Please check the item.
+http://localhost:3000/items/1

@@ -21,5 +21,7 @@ module Chienowa
     # config.i18n.default_locale = :de
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
+    config.mail_from = "chienowa@example.com"
   end
 end

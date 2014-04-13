@@ -78,4 +78,13 @@ Chienowa::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # customize your mail environment
+  #config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  #config.action_mailer.smtp_settings = {
+  #  :address => "127.0.0.1",
+  #  :port => 25
+  #}
+
+  #config.mail_from = "chienowa@wrap-trap.net"
 end
