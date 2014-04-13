@@ -22,11 +22,14 @@ class Item < ActiveRecord::Base
       new_revision = @before_item.histories.size + 1
       title_diff = self.title if self.title != @before_item.title
       if self.content != @before_item.content
-        content_diff = Diffy::Diff.new(@before_item.content, self.content, include_diff_info: true).to_s
+        content_diff = Diffy::Diff.new(@before_item.content, self.content, include_diff_info: true, diff: "-U 1").to_s
       end
+    else
+      title_diff = self.title
+      content_diff = Diffy::Diff.new("", self.content, include_diff_info: true, diff: "-U 1").to_s
     end
 
-    if new_revision == 1 || (content_diff || title_diff)
+    if content_diff || title_diff
       item_history = create_item_history(new_revision, title_diff, content_diff)
       item_history.save!()
     end
