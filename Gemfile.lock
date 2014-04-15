@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/naoty/redcarpet_filename_extension.git
+  revision: f34553b3b23cb5c9decca4b50f0efc36fa74beb5
+  specs:
+    redcarpet_filename_extension (1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -235,6 +241,7 @@ DEPENDENCIES
   rails (= 4.0.3)
   rails_12factor (= 0.0.2)
   redcarpet
+  redcarpet_filename_extension (= 1.0)!
   rspec-rails (= 2.11.0)
   sass-rails (~> 4.0.0)
   sdoc

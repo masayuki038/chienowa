@@ -172,6 +172,32 @@ input {
   }
 }
 
+.code-header {
+  background-color: #f5f5f5;
+  border-width: 1px 1px 0px 1px;
+  border-style: solid;
+  border-color: #ccc;
+  padding: 8px 0px 8px 12px;
+  background-image: linear-gradient(#fafafa, #eaeaea);
+  background-repeat: repeat-x;
+}
+
+.linenos pre {
+  border-width: 1px 0px 1px 1px;
+  border-style: solid;
+  border-color: #ccc;
+  background-color: #fdfdfd;
+}
+
+.code pre {
+  border: 1px solid #ccc;
+  background-color: #fdfdfd;
+}
+
+
+.highlight pre {
+  border-radius: 0px; }
+ 
 .changes {
   margin-left: 0px;
   margin-right: 10px;

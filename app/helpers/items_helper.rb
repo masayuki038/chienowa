@@ -1,7 +1,8 @@
 module ItemsHelper
   def markdown(text)
     html = Redcarpet::Markdown.new(
-      Redcarpet::Render::HTML.new(hard_wrap: true),
+      RedcarpetFilenameExtension::BlockCodeWithFilename.new(hard_wrap: true),
+      #Redcarpet::Render::HTML.new(hard_wrap: true),
       tables: true,
       autolink: true,
       superscript: true,

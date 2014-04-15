@@ -9,6 +9,6 @@ class Mailer < ActionMailer::Base
   def star_email(star)
     @star = star
     @user = User.find_by_name(star.author)
-    mail(to: @user.email, subject: "#{@star.user.name} starred about your item")
+    mail(to: @user.email, subject: "#{@star.user.name} starred about your item") if @user
   end
 end
