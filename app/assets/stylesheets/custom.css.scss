@@ -59,6 +59,7 @@ input {
   .stars_container {
     height: 25px;
   }
+  border-bottom: 1px solid #ddd;
 }
 
 /* users index */
@@ -139,7 +140,7 @@ input {
 .markdown {
   h1 {
     font-size: 28px;
-    border-bottom: solid #cccccc 1px;
+    border-bottom: solid #dedede 1px;
     margin-top: 36px;
     margin-bottom: 24px;
   }
@@ -193,7 +194,6 @@ input {
   border: 1px solid #ccc;
   background-color: #fdfdfd;
 }
-
 
 .highlight pre {
   border-radius: 0px; }
