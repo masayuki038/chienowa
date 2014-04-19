@@ -1,6 +1,7 @@
 GIT
-  remote: git://github.com/naoty/redcarpet_filename_extension.git
-  revision: f34553b3b23cb5c9decca4b50f0efc36fa74beb5
+  remote: git://github.com/masayuki038/redcarpet_filename_extension.git
+  revision: f110dabf1d40c8c8bbd85ffbfa1904b502c8555c
+  branch: with_pygments_options
   specs:
     redcarpet_filename_extension (1.0)
 

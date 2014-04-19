@@ -72,7 +72,7 @@ gem "redcarpet"
 gem "pygments.rb"
 gem "nokogiri"
 gem "diffy"
-gem 'redcarpet_filename_extension', '1.0', git: 'git://github.com/naoty/redcarpet_filename_extension.git'
+gem 'redcarpet_filename_extension', '1.0', git: 'git://github.com/masayuki038/redcarpet_filename_extension.git', branch: 'with_pygments_options'
 
 group :production do
   gem 'pg', '0.15.1'
