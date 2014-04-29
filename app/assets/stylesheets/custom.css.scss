@@ -90,10 +90,6 @@ input {
   @include content_form;
 }
 
-.item input, textarea, select, .uneditable-input {
-  @include content_form;
-}
-
 /* items */
 .items {
   list-style: none;
@@ -171,6 +167,23 @@ input {
       width: 48px;
     }
   }
+
+  li {
+    margin: 10px 0px 10px 0px;
+  }
+
+  div.code-block {
+    margin: 15px 0px 10px 0px;
+  }
+
+  img {
+    margin: 10px 0px 10px 0px;
+  }
+}
+
+/* edit item */
+.edit input, textarea, select, .uneditable-input {
+  @include content_form;
 }
 
 .code-header {
