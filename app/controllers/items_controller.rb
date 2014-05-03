@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
   end
 
   def preview
-    render text: markdown(request.body.read).to_s, layout: false
+    render text: markdown(params[:content]).to_s, layout: false
   end
 
   def help

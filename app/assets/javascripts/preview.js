@@ -4,7 +4,7 @@ $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
         $.ajax({
             type: "POST",
             url: "/item/preview",
-            data: $("#content").val(),
+            data: {content: $("#content").val()},
             error: function(data){
                 alert("There was a problem");
             },
