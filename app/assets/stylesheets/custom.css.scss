@@ -193,9 +193,15 @@ input {
     background-color: #fdfdfd;
   }
 
-  .code pre {
-    border: 1px solid #ccc;
-    background-color: #fdfdfd;
+  .code-body {
+    overflow-x: auto;
+  }
+
+  .code {
+    pre {
+      border: 1px solid #ccc;
+      background-color: #fdfdfd;
+    }
   }
 
   .highlight pre {
